@@ -3,7 +3,7 @@
 
 This is a repository of the codes used for this manuscript.
 
-<b>Example 1: Disk of area fraction $f< f_crit$ in square/hexagonal array</b>
+<b>Example 1: Disk of area fraction f< f_c in square/hexagonal array</b>
 
 code: spectral_disk.f90
 
