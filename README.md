@@ -1,5 +1,5 @@
 # RSPA-2023-0195
-<b>A Semi-Analytic Method for the Computation of the Effective Properties</b>
+<b>A Semi-Analytic Method for the Computation of the Effective Properties of Composites of Two Isotropic Constituents</b>
 
 This is a repository of the codes used for this manuscript.
 
