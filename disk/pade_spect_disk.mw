@@ -1,0 +1,58 @@
+# find the PA from the moments {mu[k]} k=0,1,...,M
+# of the variable s = sigma1/sigma0 -1
+#
+# on output: the sequence of subdiagonal [m-1/m] and diagonal [m/m] PA evaluated at
+#  s= s0
+#  s=-1
+#  s-> infinity
+
+# find series sigma*= sigma0*( 1+ mu[0]*s + mu[1]*s^2 + ...)
+# s= (sigma1-sigma0)/sigma0
+# then find PA in variable s
+
+with(numapprox):
+Digits:=16:
+
+read("moments.dat"):
+
+s0:= 50; # change value if needed
+
+
+for m from 2 to M by 2 do                                                      
+    sigma :=1+sum(mu[k]*s^k,k=1..m):                                             
+    mp:=m/2:                                                                              
+    p1[mp]:=pade(sigma,s=0,[mp-1,mp]):
+    sig50[m-1]:=limit(p1[mp],s=s0);
+    sigze[m-1]:=limit(p1[mp],s=-1.0);
+    
+    p2[mp]:=pade(sigma,s=0,[mp,mp]):
+    sig50[m]:=limit(p2[mp],s=s0);
+    sigze[m]:=limit(p2[mp],s=-1.0);
+    siginf[m]:=limit(p2[mp],s=infinity);
+    
+end do:
+
+# print values of sigma*
+
+# print("sigma* for s0=",s0);
+
+print("sub/diagonal PA at s=",s0);
+m:='m':
+for m from 2 to M by 2 do
+    print(m,sig50[m-1],sig50[m]);
+end do;
+
+print("sub/diagonal PA at s=-1");
+m:='m':
+for m from 2 to M by 2  do
+    print(m,sigze[m-1],sigze[m]);
+end do;
+
+print("diagonal PA at s=infinity");
+m:='m':
+for m from 2 to M by 2 do
+    print(m,siginf[m]);
+end do;
+
+
+done;
