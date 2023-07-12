@@ -41,7 +41,7 @@ code: spectral_disk.f90
   
  Exec time  =   0.26382304599974304      seconds<br>
 
- To build the Pade approximants in the variable s=(epsilon1-epsilon2)/epsilon2, run:
+ <b>To build the Pade approximants in the variable s=(epsilon1-epsilon2)/epsilon2, run:<b>
  
  maple pade_spect_disk.mw
  
